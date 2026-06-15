@@ -38,10 +38,20 @@ const navMap = {
   contact:    document.getElementById('nav-contact'),
 };
 
+// Sections that have a dark background — nav text should go light
+const darkSections = new Set(['contact']);
+
 function setActiveNav(id) {
   navLinks.forEach(l => l.classList.remove('active'));
   const link = navMap[id];
   if (link) link.classList.add('active');
+
+  // Toggle light text when over a dark section
+  if (darkSections.has(id)) {
+    nav.classList.add('on-dark');
+  } else {
+    nav.classList.remove('on-dark');
+  }
 }
 
 function updateActiveNav() {
