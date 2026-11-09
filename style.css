@@ -16,18 +16,25 @@
    ============================================================ */
 
 :root {
-  /* Palette — cool forest green, breaks the warm-cream AI default */
-  --bg:            #F1F4F1;
-  --surface:       #E6EBE6;
-  --surface-raised:#EEF2EE;
-  --ink:           #1A1F1A;
-  --ink-soft:      #4A5448;
-  --ink-faint:     #7A8878;
-  --moss:          #3B5E3F;
-  --moss-light:    #5A8060;
-  --moss-dark:     #263D29;
-  --clay:          #C26A4A;
-  --ghost:         rgba(59, 94, 63, 0.07);
+  /* Palette — coastal navy & red, bold and crisp */
+  --bg:            #f1faee;   /* honeydew */
+  --surface:       #e4f2f3;   /* frosted blue tint */
+  --surface-raised:#eef7f7;
+  --ink:           #1d3557;   /* oxford-navy — rich dark text */
+  --ink-soft:      #3d6480;   /* between cerulean & navy */
+  --ink-faint:     #7aacc0;   /* lighter cerulean */
+  --moss:          #457b9d;   /* cerulean — primary accent */
+  --moss-light:    #a8dadc;   /* frosted-blue — light accent */
+  --moss-dark:     #1d3557;   /* oxford-navy — dark accent */
+  --clay:          #e63946;   /* punch-red — secondary accent */
+  --ghost:         rgba(69, 123, 157, 0.07);
+
+  /* Named aliases for the new palette */
+  --punch-red:    #e63946;
+  --honeydew:     #f1faee;
+  --frosted-blue: #a8dadc;
+  --cerulean:     #457b9d;
+  --oxford-navy:  #1d3557;
 
   /* Organic asymmetric radii — each card gets a unique combo */
   --r-sm:  4px;
@@ -44,9 +51,9 @@
   --sp-2xl:136px;
 
   /* Shadows */
-  --sh-sm: 0 2px 8px  rgba(26,31,26,0.07);
-  --sh-md: 0 8px 32px rgba(59,94,63,0.11);
-  --sh-lg: 0 20px 60px rgba(59,94,63,0.16);
+  --sh-sm: 0 2px 8px  rgba(29,53,87,0.08);
+  --sh-md: 0 8px 32px rgba(69,123,157,0.12);
+  --sh-lg: 0 20px 60px rgba(69,123,157,0.18);
 
   /* Typography */
   --f-display: 'Fraunces', Georgia, serif;
@@ -57,7 +64,6 @@
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* ── TRUE Liquid Glass tokens (ultra-transparent, like iOS) ── */
-  /* Almost zero white fill — blobs and background show through fully */
   --glass-bg:           rgba(255, 255, 255, 0.03);
   --glass-border:       rgba(255, 255, 255, 0.50);
   --glass-blur:         blur(10px) saturate(160%);
@@ -91,9 +97,17 @@ body {
   font-size: 1rem;
   line-height: 1.7;
   overflow-x: hidden;
-  /* Rich tinted canvas — blobs need a vivid base to show through glass */
-  background: linear-gradient(160deg, #d8e8d9 0%, #e8e0d8 50%, #d9e5e2 100%);
+  /* Subtle animated coastal gradient base */
+  background: linear-gradient(-45deg, #eef5f9, #e4f2f3, #eef7f7, #f1faee);
+  background-size: 400% 400%;
+  animation: bg-drift 20s ease-in-out infinite;
   background-attachment: fixed;
+}
+
+@keyframes bg-drift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Grain texture overlay — the secret ingredient */
@@ -121,7 +135,7 @@ ul, ol {
 em {
   font-family: var(--f-display);
   font-style: italic;
-  color: var(--moss);
+  color: var(--cerulean);
 }
 
 img, svg {
@@ -209,15 +223,14 @@ p {
   border-radius: 100px;
   position: relative;
   overflow: hidden;
-  /* Ultra-transparent liquid glass nav */
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.50);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.80),
-    0 0 9px rgba(0, 0, 0, 0.18),
-    0 3px 8px rgba(0, 0, 0, 0.12);
+    0 0 9px rgba(29, 53, 87, 0.20),
+    0 3px 8px rgba(29, 53, 87, 0.12);
 }
 
 /* Top-left corner shine */
@@ -424,48 +437,48 @@ section {
 }
 
 .blob-1 {
-  width: clamp(500px, 60vw, 900px);
-  height: clamp(500px, 60vw, 900px);
-  background: radial-gradient(circle, var(--moss) 0%, transparent 62%);
-  top: -20%;
-  right: -12%;
-  opacity: 0.5;
+  width: clamp(600px, 70vw, 1000px);
+  height: clamp(600px, 70vw, 1000px);
+  background: radial-gradient(circle, var(--cerulean) 0%, transparent 70%);
+  top: -25%;
+  right: -15%;
+  opacity: 0.13;
   animation:
     blob-drift-1  20s ease-in-out infinite alternate,
     blob-morph-1  13s ease-in-out infinite alternate;
 }
 
 .blob-2 {
-  width: clamp(350px, 48vw, 700px);
-  height: clamp(350px, 48vw, 700px);
-  background: radial-gradient(circle, var(--clay) 0%, transparent 62%);
-  bottom: 0%;
-  left: -8%;
-  opacity: 0.42;
+  width: clamp(450px, 55vw, 800px);
+  height: clamp(450px, 55vw, 800px);
+  background: radial-gradient(circle, var(--punch-red) 0%, transparent 70%);
+  bottom: -5%;
+  left: -10%;
+  opacity: 0.10;
   animation:
     blob-drift-2  24s ease-in-out infinite alternate,
     blob-morph-2  16s ease-in-out infinite alternate;
 }
 
 .blob-3 {
-  width: clamp(280px, 35vw, 500px);
-  height: clamp(280px, 35vw, 500px);
-  background: radial-gradient(circle, var(--moss-light) 0%, transparent 62%);
-  top: 40%;
-  right: 14%;
-  opacity: 0.38;
+  width: clamp(350px, 42vw, 600px);
+  height: clamp(350px, 42vw, 600px);
+  background: radial-gradient(circle, var(--frosted-blue) 0%, transparent 70%);
+  top: 38%;
+  right: 10%;
+  opacity: 0.16;
   animation:
     blob-drift-3  17s ease-in-out infinite alternate,
     blob-morph-3  10s ease-in-out infinite alternate;
 }
 
 .blob-4 {
-  width: clamp(380px, 45vw, 640px);
-  height: clamp(380px, 45vw, 640px);
-  background: radial-gradient(circle, #6aab78 0%, transparent 62%);
-  top: 62%;
-  left: 22%;
-  opacity: 0.34;
+  width: clamp(450px, 50vw, 700px);
+  height: clamp(450px, 50vw, 700px);
+  background: radial-gradient(circle, var(--oxford-navy) 0%, transparent 70%);
+  top: 58%;
+  left: 18%;
+  opacity: 0.09;
   animation:
     blob-drift-4  22s ease-in-out infinite alternate,
     blob-morph-1  18s ease-in-out infinite alternate;
@@ -804,14 +817,14 @@ section {
 }
 
 .edu-dot-active {
-  background: var(--moss);
+  background: var(--cerulean);
   border: 2.5px solid var(--bg);
-  box-shadow: 0 0 0 1.5px var(--moss);
+  box-shadow: 0 0 0 1.5px var(--cerulean);
 }
 
 .edu-dot-past {
   background: transparent;
-  border: 2px solid rgba(59,94,63,0.4);
+  border: 2px solid rgba(69, 123, 157, 0.4);
 }
 
 .edu-entry:hover .edu-dot {
@@ -821,7 +834,7 @@ section {
 .edu-connector {
   flex: 1;
   width: 1.5px;
-  background: linear-gradient(to bottom, var(--moss) 0%, rgba(59,94,63,0.12) 100%);
+  background: linear-gradient(to bottom, var(--cerulean) 0%, rgba(69, 123, 157, 0.12) 100%);
   min-height: 28px;
   margin-top: 5px;
   border-radius: 1px;
@@ -874,7 +887,7 @@ section {
   padding: var(--sp-md) calc(var(--sp-md) + 4px);
   background: var(--surface-raised);
   border-radius: var(--r-md) var(--r-sm) var(--r-lg) var(--r-md);
-  border-left: 3px solid var(--clay);
+  border-left: 3px solid var(--punch-red);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -889,7 +902,7 @@ section {
 .pub-venue {
   font-family: var(--f-mono);
   font-size: 0.65rem;
-  color: var(--clay);
+  color: var(--punch-red);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 500;
@@ -931,16 +944,15 @@ section {
   margin-bottom: var(--sp-md);
   position: relative;
   overflow: hidden;
-  /* TRUE liquid glass — near invisible, blobs show through */
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(10px) saturate(160%);
   -webkit-backdrop-filter: blur(10px) saturate(160%);
   border: 1px solid rgba(255, 255, 255, 0.50);
-  border-left: 3px solid rgba(59, 94, 63, 0.55);
+  border-left: 3px solid rgba(69, 123, 157, 0.55);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.80),
-    0 0 9px rgba(0, 0, 0, 0.16),
-    0 3px 8px rgba(0, 0, 0, 0.10);
+    0 0 9px rgba(29, 53, 87, 0.16),
+    0 3px 8px rgba(29, 53, 87, 0.10);
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 
@@ -982,11 +994,11 @@ section {
 
 .project-item:hover {
   transform: translateY(-5px) scale(1.003);
-  border-left-color: rgba(59, 94, 63, 0.80);
+  border-left-color: rgba(69, 123, 157, 0.80);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.90),
-    0 0 20px rgba(0, 0, 0, 0.20),
-    0 10px 28px rgba(0, 0, 0, 0.15);
+    0 0 20px rgba(29, 53, 87, 0.20),
+    0 10px 28px rgba(29, 53, 87, 0.15);
 }
 
 .project-item:last-child {
@@ -1007,7 +1019,7 @@ section {
   display: block;
   font-family: var(--f-mono);
   font-size: 0.68rem;
-  color: var(--clay);
+  color: var(--punch-red);
   letter-spacing: 0.1em;
   margin-bottom: 6px;
 }
@@ -1428,12 +1440,12 @@ section {
 
 .exp-primary {
   border-radius: var(--r-lg) var(--r-sm) var(--r-xl) var(--r-md);
-  border-top: 2.5px solid var(--moss);
+  border-top: 2.5px solid var(--cerulean);
 }
 
 .exp-secondary {
   border-radius: var(--r-sm) var(--r-xl) var(--r-md) var(--r-lg);
-  border-top: 2.5px solid var(--clay);
+  border-top: 2.5px solid var(--punch-red);
 }
 
 .exp-header {
@@ -1528,13 +1540,12 @@ section {
   font-size: 0.67rem;
   padding: 3px 10px;
   border-radius: 100px;
-  /* Liquid glass micro-pill */
-  background: linear-gradient(135deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.22) 100%);
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(12px) saturate(140%);
   -webkit-backdrop-filter: blur(12px) saturate(140%);
   color: var(--ink-faint);
-  border: 1px solid rgba(255,255,255,0.6);
-  box-shadow: 0 2px 6px rgba(59,94,63,0.06), 0 1px 0 rgba(255,255,255,0.85) inset;
+  border: 1px solid rgba(255, 255, 255, 0.60);
+  box-shadow: 0 2px 6px rgba(29, 53, 87, 0.06), 0 1px 0 rgba(255, 255, 255, 0.85) inset;
   letter-spacing: 0.04em;
 }
 
@@ -1687,7 +1698,7 @@ section {
 
 .research-card-1 {
   border-radius: var(--r-xl) var(--r-sm) var(--r-lg) var(--r-md);
-  border-left: 3px solid var(--moss);
+  border-left: 3px solid var(--cerulean);
 }
 
 .research-card-2 {
@@ -1698,19 +1709,18 @@ section {
   display: inline-block;
   font-family: var(--f-mono);
   font-size: 0.65rem;
-  color: var(--clay);
+  color: var(--punch-red);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 14px;
-  /* Liquid glass badge */
-  background: linear-gradient(135deg, rgba(194,106,74,0.14) 0%, rgba(194,106,74,0.04) 100%);
+  background: linear-gradient(135deg, rgba(230,57,70,0.14) 0%, rgba(230,57,70,0.04) 100%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(194,106,74,0.28);
+  border: 1px solid rgba(230, 57, 70, 0.28);
   padding: 4px 12px;
   border-radius: 100px;
   width: fit-content;
-  box-shadow: 0 2px 8px rgba(194,106,74,0.1), 0 1px 0 rgba(255,255,255,0.7) inset;
+  box-shadow: 0 2px 8px rgba(230,57,70,0.1), 0 1px 0 rgba(255,255,255,0.7) inset;
 }
 
 .research-title {
@@ -1780,7 +1790,7 @@ section {
    ============================================================ */
 
 #contact {
-  background: var(--moss-dark);
+  background: var(--oxford-navy);
   padding-top: var(--sp-2xl);
   padding-bottom: var(--sp-2xl);
   color: rgba(255, 255, 255, 0.9);
@@ -1919,7 +1929,7 @@ section {
 
 .card-resume {
   border-radius: var(--r-md) var(--r-md) var(--r-md) var(--r-md);
-  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  border-left: 2px solid rgba(168, 218, 220, 0.5);
 }
 
 .contact-card-icon {
@@ -2105,12 +2115,12 @@ footer {
    ============================================================ */
 
 ::selection {
-  background: rgba(59, 94, 63, 0.18);
-  color: var(--moss-dark);
+  background: rgba(69, 123, 157, 0.22);
+  color: var(--oxford-navy);
 }
 
 :focus-visible {
-  outline: 2px solid var(--moss);
+  outline: 2px solid var(--cerulean);
   outline-offset: 3px;
   border-radius: 3px;
 }
