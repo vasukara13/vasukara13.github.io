@@ -60,7 +60,7 @@
         </p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-ghost" id="cta-work">See my work ↓</a>
-          <a href="https://drive.google.com/file/d/11hoa0WHFc8VMCZ6bWfRCPdO5gfWbXoDb/view?usp=sharing"
+          <a href="https://drive.google.com/file/d/1IprhINBClKS_nWF4gs1P-oZKZXcsVkOt/view?usp=drive_link"
             class="btn btn-ghost" id="cta-resume" target="_blank" rel="noopener">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
@@ -128,7 +128,7 @@
                 <span class="edu-years">2024 — 2026</span>
                 <h3 class="edu-institution">Indian Institute of Technology, Guwahati</h3>
                 <p class="edu-degree">M.Tech · Computer Science &amp; Engineering</p>
-                <span class="edu-cgpa">CGPA: 7.85 / 10.00 &nbsp;·&nbsp; Guwahati, India</span>
+                <span class="edu-cgpa">CGPA: 7.88 / 10.00 &nbsp;·&nbsp; Guwahati, India</span>
               </div>
             </div>
 
@@ -144,6 +144,24 @@
               </div>
             </div>
 
+          </div>
+        </div>
+
+        <div class="about-edu" style="margin-top: 2.5rem;">
+          <span class="section-label">// academic service</span>
+          <div class="edu-timeline">
+            <div class="edu-entry">
+              <div class="edu-marker">
+                <div class="edu-dot edu-dot-active"></div>
+              </div>
+              <div class="edu-content">
+                <span class="edu-years">2024 — 2026</span>
+                <h3 class="edu-institution">Saathi Coordinator · IIT Guwahati</h3>
+                <p class="edu-degree">Student mentoring and academic transition support</p>
+                <span class="edu-cgpa">Mentored incoming M.Tech students and supported their transition into the IIT
+                  Guwahati community.</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -167,17 +185,19 @@
               </div>
               <div class="exp-right">
                 <span class="exp-role">Software Engineering Intern</span>
-                <span class="exp-dates">Jan 2026 — Present</span>
+                <span class="exp-dates">Jan 2026 — Jul 2026</span>
               </div>
             </div>
             <ul class="exp-bullets">
-              <li>Migrated <strong>120+ legacy Functional Coverage Tests</strong> to an AI-powered Playwright framework;
+              <li>Migrated <strong>150+ legacy Functional Coverage Tests</strong> to an AI-powered Playwright framework;
                 built Planner, Generator, and Healer agents to auto-generate and self-heal tests directly from Epic
                 descriptions.</li>
               <li>Contributed to reducing overall test execution time by <strong>~70%</strong> (60+ mins → &lt;15 mins)
                 and cut test-authoring effort from days to hours.</li>
               <li>Designed recovery logic for corrupted decision rules and resolved multiple security &amp; stability
                 bugs during framework modernization.</li>
+              <li>Conducted robust <strong>API testing with Bruno</strong> for backend user stories before PR
+                submissions, preventing endpoint regressions.</li>
               <li>Built <strong>GitHub Actions</strong> workflows for automated PR validation and twice-daily regression
                 runs, improving release confidence.</li>
             </ul>
@@ -198,7 +218,7 @@
               </div>
               <div class="exp-right">
                 <span class="exp-role">Research Intern</span>
-                <span class="exp-dates">Jun — Aug 2022</span>
+                <span class="exp-dates">Jun 2022 — Aug 2022</span>
               </div>
             </div>
             <ul class="exp-bullets">
@@ -228,6 +248,42 @@
         <h2 class="reveal">Selected <em>projects</em>.</h2>
 
         <div class="project-list">
+
+          <!-- 00 Redis Clone -->
+          <article class="project-item reveal-child" aria-label="Project: Redis Clone">
+            <div class="project-item-header">
+              <div class="project-item-left">
+                <span class="project-item-num">00 &nbsp;—&nbsp; Systems · Networking · C++</span>
+                <h3 class="project-item-title">Redis Clone</h3>
+                <p class="project-item-subtitle">In-Memory Key-Value Store</p>
+              </div>
+              <div class="project-item-links">
+                <a href="https://github.com/vasukara13/redis-clone" class="card-link" target="_blank" rel="noopener"
+                  id="redis-github">GitHub ↗</a>
+              </div>
+            </div>
+            <ul class="project-item-tech">
+              <li>C++</li>
+              <li>Linux</li>
+              <li>TCP Sockets</li>
+              <li>poll()</li>
+              <li>Binary Protocols</li>
+            </ul>
+            <ul class="project-item-bullets">
+              <li>Developed a <strong>Redis-like in-memory key-value store</strong> supporting GET, SET, and DEL over a
+                custom length-prefixed binary protocol, with a command-line client.</li>
+              <li>Implemented a <strong>non-blocking, event-driven server</strong> using <strong>poll()</strong> for up
+                to <strong>1,000 concurrent connections</strong>, request pipelining, and fragmented TCP message
+                reassembly.</li>
+              <li>Implemented automatic data snapshots and recovery using BGSAVE, ensuring data persistence across
+                server
+                restarts with minimal impact on ongoing client requests.</li>
+              <li>Benchmarked 600,000 requests across 1,000 concurrent connections, sustaining ∼300K requests/sec with
+                zero failed
+                requests.</li>
+            </ul>
+
+          </article>
 
           <!-- 01 ResearchLens -->
           <article class="project-item reveal-child" aria-label="Project: ResearchLens">
@@ -351,7 +407,7 @@
 
           <!-- IEEE Paper -->
           <article class="research-card research-card-1 reveal-child" aria-label="IEEE TENCON 2026 Paper">
-            <span class="research-badge">Submitted · IEEE TENCON 2026</span>
+            <span class="research-badge">Accepted · IEEE TENCON 2026</span>
             <h3 class="research-title">
               A Low-Latency Cross-Domain DDoS Detection Framework for O-RAN Using Machine Learning
             </h3>
@@ -361,7 +417,8 @@
               traffic + CIC-IDS2017. Maps multi-source telemetry to <strong style="color:var(--ink)">10 telecom-inspired
                 features</strong> for cross-domain DDoS protection. XGBoost classifier validated on
               CSE-CIC-IDS2018, ToN-IoT, and UNSW-NB15 with
-              <strong style="color:var(--moss)">0.6 ms</strong> per-UE inference latency.
+              <strong style="color:var(--moss)">0.6 ms</strong> per-UE inference latency. The work was accepted to
+              IEEE TENCON 2026.
             </p>
             <ul class="research-tags">
               <li>XGBoost</li>
@@ -432,6 +489,9 @@
               <li>Prompt Engineering</li>
               <li>Vector DBs</li>
               <li>Machine Learning</li>
+              <li>XGBoost</li>
+              <li>Pandas</li>
+              <li>LangChain</li>
             </ul>
           </div>
 
@@ -444,6 +504,10 @@
               <li>Qdrant</li>
               <li>Docker</li>
               <li>FastAPI</li>
+              <li>Bruno</li>
+              <li>RQ + Valkey</li>
+              <li>Streamlit</li>
+              <li>MongoDB*</li>
             </ul>
           </div>
 
@@ -456,6 +520,7 @@
               <li>O-RAN / 5G</li>
               <li>OS Internals</li>
               <li>TCP/IP</li>
+              <li>UDP</li>
             </ul>
           </div>
 
@@ -531,8 +596,8 @@
               </div>
             </a>
 
-            <a href="https://drive.google.com/file/d/11hoa0WHFc8VMCZ6bWfRCPdO5gfWbXoDb/view?usp=sharing" target="_blank"
-              rel="noopener" class="contact-card card-resume" id="contact-resume">
+            <a href="https://drive.google.com/file/d/1IprhINBClKS_nWF4gs1P-oZKZXcsVkOt/view?usp=drive_link"
+              target="_blank" rel="noopener" class="contact-card card-resume" id="contact-resume">
               <div class="contact-card-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
